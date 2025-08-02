@@ -1,53 +1,72 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
+import axios from "axios";
 
 const Login = () => {
-  const [emailId, SetEmailId] = useState("");
-  const [password, SetPassword] = useState("");
+  const [emailId, setEmailId] = useState("ankitjha@gmail.com");
+  const [password, setPassword] = useState("Jhag@8296");
+
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:7777/login/",
+        { emailId, password },
+        { withCredentials: true }
+      );
+      console.log("Login Success:", res.data); // Optional: Handle success
+    } catch (err) {
+      console.error("Login Error:", err);
+    }
+  };
 
   return (
-    <div className="flex flex-col items-center my-20">
-      {/* Animated Heading */}
-      <h1 className="text-2xl font-bold mb-10 text-center animate-pulse text-primary">
-        Please Login/SignUp To Enter the Developer's World
-      </h1>
+    <div className="relative bg-[url('https://tinder.com/static/build/8ad4e4299ef5e377d2ef00ba5c94c44c.webp')] bg-cover bg-center h-screen">
+      <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
-      <div className="card bg-base-200 w-96 shadow-xl">
-        <div className="card-body">
-          <h2 className="card-title justify-center">Login</h2>
+      <div className="relative z-10 flex flex-col items-center justify-center py-20">
+        <h1 className="text-3xl font-bold text-white text-center animate-pulse mb-10">
+          Please Login/SignUp To Enter the Developer's World
+        </h1>
 
-          <div className="form ">
-            {/* Email Field */}
-            <label className="form-control w-full max-w-xs mb-4">
-              <div className="label py-3">
-                <span className="label-text">Email Id</span>
-              </div>
-              <input
-                type="text"
-                value={emailId}
-                placeholder="Enter your email"
-                className="input input-bordered px-5 py-3"
-                onChange={(e) => SetEmailId(e.target.value)}
-              />
-            </label>
+        <div className="card bg-base-200 w-96 shadow-xl">
+          <div className="card-body">
+            <h2 className="card-title justify-center">Login</h2>
 
-            {/* Password Field */}
-            <label className="form-control w-full max-w-xs mb-6">
-              <div className="label py-3">
-                <span className="label-text">Password</span>
-              </div>
-              <input
-                type="password"
-                value={password}
-                placeholder="Enter your password"
-                className="input input-bordered px-5 py-3"
-                onChange={(e) => SetEmailId(e.target.value)}
-              />
-            </label>
-          </div>
+            <div className="form">
+              <label className="form-control w-full max-w-xs mb-4">
+                <div className="label py-3">
+                  <span className="label-text">Email Id</span>
+                </div>
+                <input
+                  type="text"
+                  value={emailId}
+                  placeholder="Enter your email"
+                  className="input input-bordered px-5 py-3"
+                  onChange={(e) => setEmailId(e.target.value)}
+                />
+              </label>
 
-          <div className="card-actions justify-center my-3">
-            <button className="btn btn-primary w-full">Login</button>
+              <label className="form-control w-full max-w-xs mb-6">
+                <div className="label py-3">
+                  <span className="label-text">Password</span>
+                </div>
+                <input
+                  type="password"
+                  value={password}
+                  placeholder="Enter your password"
+                  className="input input-bordered px-5 py-3"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
+            </div>
+
+            <div className="card-actions justify-center my-3">
+              <button
+                className="w-full bg-[#FF3B30] text-white py-2 rounded-md font-semibold hover:bg-red-600 transition"
+                onClick={handleLogin}
+              >
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </div>
