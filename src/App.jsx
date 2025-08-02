@@ -6,6 +6,7 @@ import Body from "./Body";
 import Home from "./Home";
 import Login from "./Login";
 import Feed from "./Feed";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="feed" element={<Feed />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </BrowserRouter>

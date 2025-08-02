@@ -36,7 +36,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Why Choose Section */}
       <div className="bg-[#0F172A] text-white py-16 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Why Choose <span className="text-white">Dev</span>
@@ -44,7 +43,6 @@ const Home = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
-          {/* Card 1 */}
           <div className="border border-gray-600 rounded-lg p-6 text-center bg-[#1E293B] hover:shadow-lg transition">
             <FaUsers className="text-3xl mx-auto mb-4 text-purple-400" />
             <h3 className="font-semibold text-lg mb-2">
@@ -55,7 +53,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Card 2 */}
           <div className="border border-gray-600 rounded-lg p-6 text-center bg-[#1E293B] hover:shadow-lg transition">
             <FaProjectDiagram className="text-3xl mx-auto mb-4 text-pink-400" />
             <h3 className="font-semibold text-lg mb-2">
@@ -66,7 +63,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Card 3 */}
           <div className="border border-gray-600 rounded-lg p-6 text-center bg-[#1E293B] hover:shadow-lg transition">
             <FaChartLine className="text-3xl mx-auto mb-4 text-yellow-400" />
             <h3 className="font-semibold text-lg mb-2">Skill Growth</h3>
