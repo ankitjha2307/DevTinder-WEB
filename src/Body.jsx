@@ -7,7 +7,7 @@ const Body = () => {
   return (
     <div>
       <NavBar />
-      <Outlet />
+      <Outlet /> {/* Dynamically loads Home, Login, Feed */}
       <Footer />
     </div>
   );
