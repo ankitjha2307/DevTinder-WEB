@@ -24,7 +24,7 @@ const UserCard = ({ user }) => {
       <p className="italic text-white/70 text-sm mb-4">{about}</p>
 
       <div className="flex justify-center gap-4">
-        <button className="btn btn-outline btn-error">Ignore</button>
+        <button className="btn btn-error">Ignore</button>
         <button className="btn bg-purple-600 hover:bg-purple-800 text-white">
           Send Request
         </button>

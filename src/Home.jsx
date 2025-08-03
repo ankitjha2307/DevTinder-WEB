@@ -23,7 +23,7 @@ const Home = () => {
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-5">
           <h1 className="text-5xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
             Welcome to <span className="text-white"> Dev</span>
-            <span className="text-pink-400">Tinder 🧑‍💻</span>
+            <span className="text-red-600">Tinder 🧑‍💻</span>
           </h1>
           <p className="text-xl mb-10 max-w-xl animate-fade-in delay-100">
             Created By the Developer, for the Developer
@@ -40,7 +40,7 @@ const Home = () => {
       <div className="bg-[#0F172A] text-white py-16 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Why Choose <span className="text-white">Dev</span>
-          <span className="text-pink-400">Tinder</span>?
+          <span className="text-red-600">Tinder</span>?
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">

@@ -26,8 +26,9 @@ const Feed = () => {
   return (
     feed &&
     feed.data && (
-      <div className="flex justify-center py-20 relative bg-[url('https://tinder.com/static/build/8ad4e4299ef5e377d2ef00ba5c94c44c.webp')] bg-cover bg-center min-h-screen">
-        <div className="absolute inset-0 bg-black opacity-65 z-0" />
+      <div className="flex justify-center py-20 relative min-h-screen bg-gradient-to-br from white-900 via-blue-800 to-r-700">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-0" />
 
         <div className="relative z-10 flex flex-col items-center space-y-6">
           {/* Card */}
