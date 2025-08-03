@@ -15,7 +15,7 @@ const Feed = () => {
       const res = await axios.get(BASE_URL + "feed", { withCredentials: true });
       dispatch(addFeed(res.data));
     } catch (err) {
-      console.error("Error");
+      console.error("Error fetching feed:", err);
     }
   };
 
@@ -24,10 +24,17 @@ const Feed = () => {
   }, []);
 
   return (
-    feed && (
-      <div className="flex justify-center py-20">
-        {" "}
-        <UserCard user={feed.data[1]} />{" "}
+    feed &&
+    feed.data && (
+      <div className="flex justify-center py-20 relative bg-[url('https://tinder.com/static/build/8ad4e4299ef5e377d2ef00ba5c94c44c.webp')] bg-cover bg-center min-h-screen">
+        <div className="absolute inset-0 bg-black opacity-65 z-0" />
+
+        <div className="relative z-10 flex flex-col items-center space-y-6">
+          {/* Card */}
+          <div className="backdrop-blur-lg bg-white/10 border border-white/20 text-white p-4 rounded-2xl shadow-2xl w-[350px] max-h-[420px] overflow-hidden">
+            <UserCard user={feed.data[1]} />
+          </div>
+        </div>
       </div>
     )
   );

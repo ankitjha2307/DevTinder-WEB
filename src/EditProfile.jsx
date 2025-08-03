@@ -18,7 +18,7 @@ const EditProfile = ({ user }) => {
   const saveProfile = async () => {
     try {
       const res = await axios.patch(
-        "http://localhost:7777/",
+        BASE_URL + "profile/edit",
         {
           firstName,
           lastName,
@@ -51,7 +51,7 @@ const EditProfile = ({ user }) => {
               className="space-y-4"
               onSubmit={(e) => {
                 e.preventDefault();
-                saveProfile(); // ✅ PATCH called on form submit
+                saveProfile();
               }}
             >
               <input
