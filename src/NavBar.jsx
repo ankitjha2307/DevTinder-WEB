@@ -64,6 +64,12 @@ const NavBar = () => {
                 >
                   Connections
                 </Link>
+                <Link
+                  to="/request"
+                  className="block px-3 py-2 rounded-lg hover:bg-pink-50 transition font-medium text-gray-700"
+                >
+                  Requestes
+                </Link>
               </li>
               <li>
                 <button
