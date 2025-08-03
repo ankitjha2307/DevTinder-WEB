@@ -22,7 +22,8 @@ const Home = () => {
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-5">
           <h1 className="text-5xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
-            Welcome to DevTinder 👨‍💻
+            Welcome to <span className="text-white"> Dev</span>
+            <span className="text-pink-400">Tinder 🧑‍💻</span>
           </h1>
           <p className="text-xl mb-10 max-w-xl animate-fade-in delay-100">
             Created By the Developer, for the Developer

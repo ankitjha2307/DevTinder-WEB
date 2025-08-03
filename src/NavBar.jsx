@@ -23,7 +23,8 @@ const NavBar = () => {
     <div className="navbar bg-info-content shadow-sm">
       <div className="flex-1">
         <Link to="/feed" className="btn btn-ghost text-xl">
-          🧑‍💻 DevTinder
+          <span className="text-white">🧑‍💻 Dev</span>
+          <span className="text-pink-400">Tinder</span>
         </Link>
       </div>
 
