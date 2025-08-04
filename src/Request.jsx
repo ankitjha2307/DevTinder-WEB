@@ -8,6 +8,18 @@ const Request = () => {
   const Requestes = useSelector((store) => store.request);
   const dispatch = useDispatch();
 
+  const rivewRequest = async (status, _id) => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "request/review/" + status + "/" + _id,
+        {},
+        { withCredentials: true }
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const fetchRequest = async () => {
     try {
       const res = await axios.get(BASE_URL + "user/request/recived", {
@@ -38,7 +50,7 @@ const Request = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-6xl">
           {Requestes.map((request) => {
-            const { firstName, lastName, photoUrl, about, gender, age } =
+            const { _id, firstName, lastName, photoUrl, about, gender, age } =
               request.fromUserId;
 
             return (
@@ -65,11 +77,17 @@ const Request = () => {
 
                 {/* Buttons UI */}
                 <div className="flex gap-4 mt-4">
-                  <button className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-800 text-white">
-                    Accept
-                  </button>
-                  <button className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-800 text-white">
+                  <button
+                    className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-800 text-white"
+                    onClick={() => rivewRequest("rejected", request._id)}
+                  >
                     Reject
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-800 text-white"
+                    onClick={() => rivewRequest("accepted", request._id)}
+                  >
+                    Accepted
                   </button>
                 </div>
               </div>

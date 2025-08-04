@@ -1,7 +1,21 @@
+import axios from "axios";
 import React from "react";
+import { BASE_URL } from "./utils/constats";
 
 const UserCard = ({ user }) => {
   const { firstName, lastName, photoUrl, age, gender, about } = user;
+
+  const handelSendRequest = async (status, userId) => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "request/send/" + status + "/" + userId,
+        {},
+        { withCredentials: true }
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="text-white text-center">
