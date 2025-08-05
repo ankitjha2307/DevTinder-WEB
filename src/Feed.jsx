@@ -23,21 +23,21 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  return (
-    feed &&
-    feed.data && (
-      <div className="flex justify-center py-20 relative min-h-screen bg-gradient-to-br from white-900 via-blue-800 to-r-700">
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 z-0" />
+  if (!feed || !feed.data) return null;
 
-        <div className="relative z-10 flex flex-col items-center space-y-6">
-          {/* Card */}
-          <div className="backdrop-blur-lg bg-white/10 border border-white/20 text-white p-4 rounded-2xl shadow-2xl w-[350px] max-h-[420px] overflow-hidden">
-            <UserCard user={feed.data[1]} />
-          </div>
+  return (
+    <div className="flex justify-center py-20 relative min-h-screen bg-gradient-to-br from-white-900 via-blue-800 to-r-700">
+      <div className="absolute inset-0 bg-black/40 z-0" />
+      <div className="relative z-10 flex flex-col items-center space-y-6">
+        <div className="backdrop-blur-lg bg-white/10 border border-white/20 text-white p-4 rounded-2xl shadow-2xl w-[350px] max-h-[420px] overflow-hidden">
+          {feed.data.length > 0 ? (
+            <UserCard user={feed.data[0]} />
+          ) : (
+            <p className="text-center text-lg font-semibold">No users found</p>
+          )}
         </div>
       </div>
-    )
+    </div>
   );
 };
 

@@ -1,9 +1,12 @@
 import axios from "axios";
 import React from "react";
 import { BASE_URL } from "./utils/constats";
+import { useDispatch } from "react-redux";
+import { removeFeed } from "./utils/feedSlice";
 
 const UserCard = ({ user }) => {
-  const { firstName, lastName, photoUrl, age, gender, about } = user;
+  const { _id, firstName, lastName, photoUrl, age, gender, about } = user;
+  const dispatch = useDispatch();
 
   const handelSendRequest = async (status, userId) => {
     try {
@@ -12,9 +15,8 @@ const UserCard = ({ user }) => {
         {},
         { withCredentials: true }
       );
-    } catch (err) {
-      console.error(err);
-    }
+      dispatch(removeFeed(userId));
+    } catch (err) {}
   };
 
   return (
@@ -38,8 +40,16 @@ const UserCard = ({ user }) => {
       <p className="italic text-white/70 text-sm mb-4">{about}</p>
 
       <div className="flex justify-center gap-4">
-        <button className="btn btn-error">Ignore</button>
-        <button className="btn bg-purple-600 hover:bg-purple-800 text-white">
+        <button
+          className="btn btn-error"
+          onClick={() => handelSendRequest("ignored", _id)}
+        >
+          Ignore
+        </button>
+        <button
+          className="btn bg-purple-600 hover:bg-purple-800 text-white"
+          onClick={() => handelSendRequest("intrested", _id)}
+        >
           Send Request
         </button>
       </div>
