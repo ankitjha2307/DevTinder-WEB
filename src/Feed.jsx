@@ -11,8 +11,14 @@ const Feed = () => {
 
   const getFeed = async () => {
     if (feed) return;
+    const token = localStorage.getItem("token");
     try {
-      const res = await axios.get(BASE_URL + "feed", { withCredentials: true });
+      const res = await axios.get(BASE_URL + "feed", {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       dispatch(addFeed(res.data));
     } catch (err) {
       console.error("Error fetching feed:", err);

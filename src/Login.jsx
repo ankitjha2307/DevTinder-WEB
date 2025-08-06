@@ -22,7 +22,8 @@ const Login = () => {
         { emailId, password },
         { withCredentials: true }
       );
-      dispatch(addUser(res.data));
+      dispatch(addUser(res.data.user));
+      localStorage.setItem("token", res.data.token);
       return navigate("/feed");
     } catch (err) {
       setError(err?.response?.data || "something went wrong");
@@ -37,6 +38,9 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data.data));
+
+      localStorage.setItem("token", res.data.token);
+
       return navigate("/profile");
     } catch (err) {
       setError(err?.response?.data || "something went wrong");
