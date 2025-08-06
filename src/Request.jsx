@@ -9,11 +9,17 @@ const Request = () => {
   const dispatch = useDispatch();
 
   const rivewRequest = async (status, _id) => {
+    const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
         BASE_URL + "request/review/" + status + "/" + _id,
         {},
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       dispatch(removeRequest(_id));
     } catch (err) {

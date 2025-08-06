@@ -19,6 +19,7 @@ const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
 
   const saveProfile = async () => {
+    const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
         BASE_URL + "profile/edit",
@@ -31,7 +32,12 @@ const EditProfile = ({ user }) => {
           about,
           emailId,
         },
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       dispatch(addUser(res?.data?.data));
