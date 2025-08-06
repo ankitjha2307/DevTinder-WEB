@@ -7,9 +7,9 @@ import { addRequest, removeRequest } from "./utils/requestSlice";
 const Request = () => {
   const Requestes = useSelector((store) => store.request);
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
   const rivewRequest = async (status, _id) => {
-    const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
         BASE_URL + "request/review/" + status + "/" + _id,

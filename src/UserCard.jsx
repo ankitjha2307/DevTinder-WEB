@@ -9,14 +9,21 @@ const UserCard = ({ user }) => {
   const dispatch = useDispatch();
 
   const handelSendRequest = async (status, userId) => {
+    const token = localStorage.getItem("token");
     try {
       const res = await axios.post(
         BASE_URL + "request/send/" + status + "/" + userId,
         {},
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       dispatch(removeFeed(userId));
     } catch (err) {}
+    console.error("Error");
   };
 
   return (
