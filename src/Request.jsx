@@ -28,9 +28,13 @@ const Request = () => {
   };
 
   const fetchRequest = async () => {
+    const token = localStorage.getItem("token");
     try {
       const res = await axios.get(BASE_URL + "user/request/recived", {
         withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       dispatch(addRequest(res.data.data));
