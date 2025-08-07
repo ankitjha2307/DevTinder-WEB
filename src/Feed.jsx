@@ -14,7 +14,6 @@ const Feed = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.get(BASE_URL + "feed", {
-        withCredentials: true,
         headers: {
           Authorization: `Bearer ${token}`,
         },

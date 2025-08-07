@@ -17,11 +17,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(
-        BASE_URL + "login/",
-        { emailId, password },
-        { withCredentials: true }
-      );
+      const res = await axios.post(BASE_URL + "login/", { emailId, password });
       localStorage.setItem("token", res.data.token);
       dispatch(addUser(res.data.user));
 
@@ -33,11 +29,12 @@ const Login = () => {
 
   const handelSignUp = async () => {
     try {
-      const res = await axios.post(
-        BASE_URL + "signup/",
-        { firstName, lastName, emailId, password },
-        { withCredentials: true }
-      );
+      const res = await axios.post(BASE_URL + "signup/", {
+        firstName,
+        lastName,
+        emailId,
+        password,
+      });
       localStorage.setItem("token", res.data.token);
       dispatch(addUser(res.data.data));
 

@@ -33,7 +33,6 @@ const EditProfile = ({ user }) => {
           emailId,
         },
         {
-          withCredentials: true,
           headers: {
             Authorization: `Bearer ${token}`,
           },

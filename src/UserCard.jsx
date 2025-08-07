@@ -15,7 +15,6 @@ const UserCard = ({ user }) => {
         BASE_URL + "request/send/" + status + "/" + userId,
         {},
         {
-          withCredentials: true,
           headers: {
             Authorization: `Bearer ${token}`,
           },
